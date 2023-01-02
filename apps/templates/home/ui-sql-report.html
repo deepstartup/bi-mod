@@ -1,0 +1,49 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<!--Arghadeep-->
+<style>
+    .center {
+      text-align: center;
+      border: 3px solid green;
+      background-image:url("{{ url_for('static', filename='JEfZtU.jpg')}}");
+    }
+    .tabcenter {
+  margin-left: auto;
+  margin-right: auto;
+}
+    </style>
+    <div class="center">
+            <h3 style="text-align: center">SQL Parser Report</h3>
+            <table class="tabcenter">
+            <tr><td>
+            {% for table in tables %}
+            {{titles[loop.index]}}
+            {{ table|safe }}
+             {% endfor %}
+            </td>
+            <td>
+                {{json_query}}
+                </td>
+        </tr>
+             <tr><td>
+             <form action="getfile_test" method="POST" enctype="multipart/form-data"><input type="submit" value="Download"/></form>
+             </td><td><form action="getfile_save" method="POST" enctype="multipart/form-data"><input type="submit" value="Save"/></form>
+            </td></tr>
+            </table>
+            </div>
+            
+     <div align="center" id="output" style="margin: 10px;"></div>
+<!--arghadeep ends-->    
+
+
+
+{% endblock content %}
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

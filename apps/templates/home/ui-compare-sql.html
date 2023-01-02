@@ -1,0 +1,53 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<!--Arghadeep-->
+<style>
+    .center {
+      text-align: center;
+      border: 3px solid green;
+      background-image:url("{{ url_for('static', filename='JEfZtU.jpg')}}");
+    }
+    
+    .tabcenter {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    </style>
+    <div class="center">
+            <h3 style="text-align: center">Compare Two SQL</h3>
+          <form action="sqlcompare" method="POST" enctype="multipart/form-data">
+            <table><tr><td>
+          <p>
+                Drop a SQL file on this page or
+                <input id="sql" name="sql" type="file"/>
+                <br /><br />
+                <textarea placeholder="or type or paste SQL here" style="width: 400px;height: 400px;" id="textarea1" name="textarea1"></textarea>
+                <br />
+                
+            </p>
+            </td><td>
+            <p>
+                    Drop a SQL file on this page or
+                    <input id="sql" name="sql" type="file"/>
+                    <br /><br />
+                    <textarea placeholder="or type or paste SQL here" style="width: 400px;height: 400px;" id="textarea2" name="textarea2"></textarea>
+                    <br />
+            </p></td></tr></table>
+                <input type="submit" value="Compare">
+            </form>
+                </div>
+     <div align="center" id="output" style="margin: 10px;"></div>
+<!--arghadeep ends-->    
+
+
+
+{% endblock content %}
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

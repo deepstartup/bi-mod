@@ -1,0 +1,90 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<!--Arghadeep-->
+<script type="text/javascript" 
+    src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js">  
+    </script> 
+<style>
+    .center {
+      text-align: center;
+      border: 3px solid green;;
+    }
+    
+    .tabcenter {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    </style>
+    <script type="text/javascript">
+        function showDiv(divId, element)
+        {
+            document.getElementById(divId).style.display = element.value == 'domain' ? 'block' : 'none';
+        }
+        </script>
+        <script>
+            $('#domain').on('change', function(){
+   console.log($('#domain').val());
+    $('#tgtlang').html('');
+    if($('#domain').val()=='cobol'){
+        $('#tgtlang').append('<option value="sql">SQL</option>');
+        $('#tgtlang').append('<option value="python">Python/option>');
+    }else{
+        $('#tgtlang').append('<option value="bigbuery">BigQuery</option>');
+        $('#tgtlang').append('<option value="sparkql">SparkQL</option>');
+        $('#tgtlang').append('<option value="hiveql">HiveQL</option>');
+        $('#tgtlang').append('<option value="python">Python</option>');
+    }
+});
+            </script>
+    <div class="center">
+            <h3 style="text-align: center">Code Conversion Workbench for Reporting</h3>
+          <form action="codeConvert" method="POST" enctype="multipart/form-data">
+            <p>
+                <div>
+               Select Convert From Language: 
+               <select id="domain" name="domain"">
+                    <option disabled selected>--Convert From--</option>
+                    <optgroup label="">
+                        <option value="Cobol">Cobol</option>
+                        <option value="SAAS">SaaS</option>
+                        <option value="SQL">SQL</option>
+                    </optgroup>
+                </select>
+                </div>
+                <div>
+                    Select Convert To Language:
+                    <select id="tgtlang" name="tgtlang"">
+                        <option disabled selected>--Convert To--</option>
+                        <optgroup label="">
+                            <option value="SQL">SQL</option>
+                            <option value="Python">Python</option>
+                        </optgroup>
+                    </select>
+                </div>
+            </p>
+            <p>
+                Drop a Code file on this page or
+                <input id="code_part" name="code_part" type="file"/>
+                <br /><br />
+                <textarea placeholder="or type or paste Code here" style="width: 1000px;height: 400px;" id="codetextarea" name="codetextarea"></textarea>
+                <br />
+                
+            </p>
+                <input type="submit" value="Execute">
+            </form>
+                </div>
+     <div align="center" id="output" style="margin: 10px;"></div>
+<!--arghadeep ends-->    
+
+
+
+{% endblock content %}
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}

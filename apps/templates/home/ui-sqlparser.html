@@ -1,0 +1,43 @@
+{% extends "layouts/base.html" %}
+
+{% block title %} UI Tables {% endblock %} 
+
+<!-- Specific Page CSS goes HERE  -->
+{% block stylesheets %}{% endblock stylesheets %}
+
+{% block content %}
+
+<!--Arghadeep-->
+<style>
+    .center {
+      text-align: center;
+      border: 3px solid green;
+    }
+    
+    .tabcenter {
+      margin-left: auto;
+      margin-right: auto;
+    }
+    </style>
+    <div class="center">
+            <h3 style="text-align: center">Welcome to SQL-Parser Workbench</h3>
+          <form action="featuresSel" method="POST" enctype="multipart/form-data">
+          <p>
+                Drop a SQL file on this page or
+                <input id="sql" name="sql" type="file"/>
+                <br /><br />
+                <textarea placeholder="or type or paste SQL here" style="width: 1000px;height: 400px;" id="textarea" name="textarea"></textarea>
+                <br />
+                
+            </p>
+                <input type="submit" value="Simulate">
+            </form>
+                </div>
+     <div align="center" id="output" style="margin: 10px;"></div>
+<!--arghadeep ends-->    
+
+
+
+{% endblock content %}
+<!-- Specific Page JS goes HERE  -->
+{% block javascripts %}{% endblock javascripts %}
